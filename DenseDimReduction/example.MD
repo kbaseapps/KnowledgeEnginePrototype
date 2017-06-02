@@ -1,4 +1,4 @@
-###Dense Query Indexing
+### Dense Query Indexing
 
 #### Challenges
 10^5 metagenomes may have O(10^3) tax_ids on average from O(10^6) tax_id spaces.
