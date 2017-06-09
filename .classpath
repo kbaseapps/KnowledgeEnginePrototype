@@ -19,15 +19,16 @@
 	<classpathentry kind="lib" path="../jars/lib/jars/syslog4j/syslog4j-0.9.46.jar"/>
 	<classpathentry kind="lib" path="../jars/lib/jars/apache_commons/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="../jars/lib/jars/apache_commons/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="../jars/lib/jars/kbase/workspace/WorkspaceClient-0.6.0.jar"/>
+	<classpathentry kind="lib" path="../jars/lib/jars/google/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="../jars/apache_commons/commons-math-2.2.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tarsoslsh/TarsosLSH-0.7.jar"/>
 	<classpathentry kind="lib" path="lib/jars/eclipse-collections/eclipse-collections-api-8.1.0.jar"/>
-	<classpathentry kind="lib" path="../jars/lib/jars/kbase/workspace/WorkspaceClient-0.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/mapdb/mapdb-3.0.4.jar"/>
 	<classpathentry kind="lib" path="lib/jars/kotlin/kotlin-stdlib-1.0.7.jar"/>
 	<classpathentry kind="lib" path="lib/jars/mapdb/elsa-3.0.0-M5.jar"/>
 	<classpathentry kind="lib" path="lib/jars/kotlin/kotlin-runtime-1.0.7.jar"/>
 	<classpathentry kind="lib" path="lib/jars/eclipse-collections/eclipse-collections-8.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/lz4/lz4-1.3.0.jar"/>
-	<classpathentry kind="lib" path="../jars/lib/jars/google/guava-18.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
