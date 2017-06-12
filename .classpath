@@ -21,7 +21,7 @@
 	<classpathentry kind="lib" path="../jars/lib/jars/apache_commons/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="../jars/lib/jars/kbase/workspace/WorkspaceClient-0.6.0.jar"/>
 	<classpathentry kind="lib" path="../jars/lib/jars/google/guava-18.0.jar"/>
-	<classpathentry kind="lib" path="../jars/apache_commons/commons-math-2.2.jar"/>
+	<classpathentry kind="lib" path="../jars/lib/jars/apache_commons/commons-math-2.2.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tarsoslsh/TarsosLSH-0.7.jar"/>
 	<classpathentry kind="lib" path="lib/jars/eclipse-collections/eclipse-collections-api-8.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/mapdb/mapdb-3.0.4.jar"/>

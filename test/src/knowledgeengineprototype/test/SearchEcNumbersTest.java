@@ -8,7 +8,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +34,7 @@ public class SearchEcNumbersTest {
         boolean reindexData = false;
         File dbFile = new File("test_local/ec_profiles.tsv");
         VectorPacker packer = new FileVectorPacker(dbFile);
-        List<Vector> queries = loadQueries(dbFile); //.subList(0, 100);
+        List<Vector> queries = loadQueries(dbFile).subList(0, 300);
         HashFamily family = new CosineHashFamily(queries.get(0).getDimensions());
         if (useIndex) {
             if (reindexData) {
@@ -59,7 +58,7 @@ public class SearchEcNumbersTest {
         int numberOfHashTables = 10;
         int numberOfHashes = 10;
         int numberOfNeighbours = 100;
-        boolean useIndex = true;
+        boolean useIndex = false;
         boolean reindexData = false;
         File dbFile = new File("test_local/ec_profiles.tsv");
         VectorPacker filePacker = new FileVectorPacker(dbFile);

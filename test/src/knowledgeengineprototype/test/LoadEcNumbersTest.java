@@ -113,7 +113,7 @@ public class LoadEcNumbersTest {
     @Test
     public void testLoadEcNumbers() throws Exception {
         Map<String, Object> data = wsClient.getObjects2(new GetObjects2Params().withObjects(Arrays.asList(
-                new ObjectSpecification().withRef("22357/2/2")))).getData().get(0).getData().asClassInstance(Map.class);
+                new ObjectSpecification().withRef("22357/2/6")))).getData().get(0).getData().asClassInstance(Map.class);
         Map<String, Object> ecData = (Map<String, Object>)data.get("custom");
         new ObjectMapper().writeValue(new File("test/data/ec_numbers.json"), ecData);
     }
@@ -121,13 +121,19 @@ public class LoadEcNumbersTest {
     @SuppressWarnings("unchecked")
     @Test
     public void testTransformEcNumbers() throws Exception {
-        Map<String, Object> ecData = new ObjectMapper().readValue(new File("test/data/ec_numbers.json"), Map.class);
-        //System.out.println(ecNumbers.keySet());
+        int minGenes = 100;
+        Map<String, Object> ecDataNotFiltered = new ObjectMapper().readValue(
+                new File("test/data/ec_numbers.json"), Map.class);
+        Map<String, Object> ecData = new LinkedHashMap<>();
         Map<String, Integer> ecToCount = new LinkedHashMap<>();
         Map<String, Map<String, Integer>> ecToGenomeToCount = new LinkedHashMap<>();
-        for (String objectName : ecData.keySet()) {
-            Map<String, Object> genome = (Map<String, Object>)ecData.get(objectName);
+        for (String objectName : ecDataNotFiltered.keySet()) {
+            Map<String, Object> genome = (Map<String, Object>)ecDataNotFiltered.get(objectName);
             Map<String, List<String>> geneToEc = (Map<String, List<String>>)genome.get("genes");
+            if (geneToEc.size() < minGenes) {
+                continue;
+            }
+            ecData.put(objectName, genome);
             for (String geneId : geneToEc.keySet()) {
                 for (String ec : geneToEc.get(geneId)) {
                     if (!ecToCount.containsKey(ec)) {
@@ -145,6 +151,8 @@ public class LoadEcNumbersTest {
                 }
             }
         }
+        System.out.println("Selected genomes: " + ecData.size() + 
+                " (out of " + ecDataNotFiltered.size() + ")");
         System.out.println("Total number of EC: " + ecToCount.size());
         List<String> ecList = new ArrayList<>(ecToCount.keySet());
         Collections.sort(ecList, new Comparator<String>() {
@@ -192,7 +200,7 @@ public class LoadEcNumbersTest {
             Map<Integer, Integer> ecPosToCount = new LinkedHashMap<>();
             for (String ec : ecList) {
                 int genomeNumber = ecToGenomeToCount.get(ec).size();
-                double genomeFraction = ((double)genomeNumber) / ecData.size() + 0.03;
+                double genomeFraction = ((double)genomeNumber) / ecData.size();
                 if (rand.nextDouble() > genomeFraction) {
                     continue;
                 }
